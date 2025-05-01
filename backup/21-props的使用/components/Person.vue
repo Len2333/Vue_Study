@@ -21,11 +21,13 @@ import {type Persons} from '../types/index'
 // defineProps<{list:Persons}>()
 
 
-//接收list+限制类型+限制必要性+指定默认值
+/*接收list+限制类型+限制必要性+指定默认值
 defineProps<{list?:Persons}>() //加了？这个list就是可选，父类不传也不会报错
 withDefaults(defineProps<{list?:Persons}>(),{
     list:()=>[{id:'1',name:'张三',age:18}]
-})  //withDefaults接收两个参数，第一个是defineProps，第二个是默认值,
+})  
+withDefaults接收两个参数，第一个是defineProps，第二个是默认值
+*/
 
 //接收并保存
 let x = defineProps(['a','b',"list"]) //返回的是一个对象，包含所有接收的数据

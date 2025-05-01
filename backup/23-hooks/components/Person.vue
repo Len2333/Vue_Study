@@ -8,8 +8,6 @@
     </div>
 </template>
 
-
-
 <script lang="ts" setup name='Person'>
 import useDog from '../hooks/useDog';   //相当于import {default:useDog} from '@/hooks/useDog';
 import {useSum} from '../hooks/useSum';
