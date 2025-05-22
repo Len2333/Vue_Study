@@ -1,8 +1,8 @@
 <template>
     <ul class="news-list">
-      <li>{{id}}</li>
-      <li>{{title}}</li>
-      <li>{{content}}</li>
+      <li>{{params.id}}</li>
+      <li>{{params.title}}</li>
+      <li>{{params.content}}</li>
       <!-- 注意这里的参数名和路由里占位的参数名一致 -->
     </ul>
 
@@ -10,8 +10,12 @@
 </template>
   
 <script setup lang="ts" name="Details">
- defineProps(['id','title','content'])
-
+ import { useRoute} from 'vue-router'
+ import { toRefs } from 'vue'
+ const  route = useRoute()
+ console.log('@',route)
+ const {params} = toRefs(route)
+ console.log('@',params)
 </script>
 
 <style scoped>

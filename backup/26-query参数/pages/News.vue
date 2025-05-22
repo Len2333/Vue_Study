@@ -3,19 +3,21 @@
       <!-- 导航区，展示了4个新闻标题 -->
       <ul>
        <li v-for="news in newsList" :key="news.id">
-        <!-- 第一种写法 -->
-        <!-- <RouterLink :to="`/news/details/${news.id}/${news.title}/${news.content}`">{{ news.title }}</RouterLink> -->
+        <!-- ``的作用是把里面的内容变成模板字符串，可以用${}嵌入变量或表达式（如下）,并进行解析，其他部分还是字符串。也可用+拼接变量，如:to="'/news/detail?id=' + news.id" -->
+        <!-- 写法一： -->
+        <!-- <RouterLink :to="`/news/details?id=${news.id}&title=${news.title}&content=${news.content}`">{{ news.title }}</RouterLink> -->
       
-        <!-- 第二种写法 -->
-         <RouterLink :to="{
-          name: 'xinwenDetail',   //这里不能用path，params传参的特点
-          params: {
-            id: news.id,
-            title: news.title,
-            content: news.content
-          }
-         }">
-          {{ news.title }}</RouterLink>
+        <!-- 写法二： VUE可以识别path和query，并按照路径和参数进行处理-->
+        <RouterLink 
+        :to="{ path: '/news/details', 
+               query: 
+               { id: news.id, 
+                 title: news.title, 
+                 content: news.content 
+                } 
+              }">
+              {{ news.title }}
+            </RouterLink>
       </li>
       </ul>
       <!-- 展示区 -->

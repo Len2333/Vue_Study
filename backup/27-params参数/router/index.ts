@@ -33,23 +33,7 @@ const router =createRouter({
                 {   
                     name:'xinwenDetail',
                     path:'details/:id/:title/:content',  //:id/:title/:content是params参数占位，占了位就要传，或者用?配置参数的必要性
-                    component:details,       //路由的本质就是路径对应的组建的调用和渲染
-                    props:true  //将params参数映射到组建的props上，相当于在组件调用时变成<details :id="id" :title="title" :content="content" />
-
-                    /*第二种写法，函数写法，可以自己决定将什么作为props给路由组件
-                    props(route)
-                    {  //这个函数接收一个参数，就是route，参数名可以随便写
-                        console.log('@@@@',route)
-                        return route.query  //一个对象，{'参数名'：'参数值',...,'参数名'：'参数值'}，也可以针对params传参，但是第一种更适合params。当然这里path就要改成query传参的path了，还要把news传参时参数名改为query
-                    }*/
-
-
-                    /*第三种写法：对象写法,但是这样传递的参数就固定了，没有第一种和第二种好
-                    props:{
-                    id:xxx,
-                    title:xxx,
-                    content:xxx
-                    }*/
+                    component:details
                 }
 
             ]
